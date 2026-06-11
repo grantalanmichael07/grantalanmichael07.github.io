@@ -1060,7 +1060,7 @@
         At 12 Stars Media, I lead storytelling and communications projects for organizations across healthcare, technology, energy, and manufacturing — focusing on employee engagement, culture, executive messaging, and mission-driven communications. I'm especially interested in the role storytelling can play inside organizations: helping people feel connected to a mission, creating clarity around complex work, and building trust through honest, human communication.
       </p>
       <p>
-        Outside of work, I'm passionate about fly fishing (I even have a film that was just accepted into an Oscar-qualifying festival), photography, and adventures with my kids.
+        Outside of work, I'm passionate about fly fishing (my film <em>On The Stream</em> is making its festival run), photography, and adventures with my kids.
       </p>
     </div>
   </div>
@@ -1299,7 +1299,13 @@
         const data = await res.json();
         thumb.style.aspectRatio = `${data.width} / ${data.height}`;
         const img = thumb.querySelector('.thumb-poster');
-        img.src = (data.thumbnail_url || '').replace(/_\d+(x\d+)?(\.\w+)?$/, '_1280$2');
+        const url = data.thumbnail_url || '';
+        img.src = hiResThumb(url);
+        img.onerror = () => {
+          const mid = url.replace(/_\d+(x\d+)?(\.\w+)?$/, '_1280$2');
+          img.onerror = img.src !== url ? () => { img.src = url; img.onerror = null; } : null;
+          img.src = mid;
+        };
         const title = thumb.closest('.work-card, #work')?.querySelector('.work-card-title, .work-featured-title')?.textContent || '';
         img.alt = title ? `Still from ${title}` : 'Video still';
         thumb.addEventListener('click', () => {

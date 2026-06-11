@@ -6,7 +6,7 @@
   <title>Grant Michael — Storyteller & Strategic Communicator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -15,14 +15,20 @@
     }
 
     :root {
-      --bg:        #F6F5F1;
-      --bg-card:   #EFEDE8;
-      --ink:       #181816;
-      --ink-mid:   #4A4A46;
-      --ink-soft:  #8A8A84;
-      --border:    #DDDBD4;
-      --accent:    #181816;
+      --bg:        #F7F3EA;
+      --bg-card:   #F0EADC;
+      --ink:       #1B1812;
+      --ink-mid:   #4C463A;
+      --ink-soft:  #8E8672;
+      --border:    #E0D8C5;
+      --accent:    #A8762E;
       --font:      'Inter', system-ui, -apple-system, sans-serif;
+      --serif:     'Newsreader', Georgia, serif;
+    }
+
+    ::selection {
+      background: #EAD9B4;
+      color: var(--ink);
     }
 
     html {
@@ -36,6 +42,17 @@
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* film grain over the whole page */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
     /* ── NAV ─────────────────────────────────────────── */
@@ -53,10 +70,9 @@
     }
 
     .nav-logo {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 500;
       text-decoration: none;
       color: var(--ink);
     }
@@ -106,15 +122,17 @@
     }
 
     .hero-name {
+      font-family: var(--serif);
       font-size: clamp(72px, 13vw, 192px);
       font-weight: 300;
-      line-height: 0.9;
-      letter-spacing: -0.04em;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
       margin-bottom: 0;
     }
 
     .hero-name em {
       font-style: italic;
+      color: var(--accent);
     }
 
     .hero-bottom {
@@ -150,12 +168,12 @@
       display: block;
       width: 32px;
       height: 1px;
-      background: var(--ink-soft);
+      background: var(--accent);
     }
 
     .hero-description {
       font-size: 17px;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.7;
       color: var(--ink-mid);
       max-width: 480px;
@@ -187,9 +205,10 @@
     .proof-item:not(:first-child) { padding-left: 40px; }
 
     .proof-number {
-      font-size: 36px;
+      font-family: var(--serif);
+      font-size: 44px;
       font-weight: 300;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       line-height: 1;
       margin-bottom: 8px;
     }
@@ -238,17 +257,59 @@
     }
 
     .section-title {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--ink);
     }
 
-    .section-count {
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      color: var(--ink-soft);
+    .section-num {
+      font-style: italic;
+      font-size: 16px;
+      color: var(--accent);
+      margin-right: 16px;
+    }
+
+    /* featured project — full-width marquee above the grid */
+    .work-featured {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      margin-bottom: 56px;
+    }
+
+    .work-featured .work-card-thumb {
+      border: none;
+      border-right: 1px solid var(--border);
+    }
+
+    .work-featured-info {
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .featured-flag {
+      color: var(--accent);
+    }
+
+    .work-featured-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 2.6vw, 40px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .work-featured-desc {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      line-height: 1.7;
     }
 
     .work-grid {
@@ -282,28 +343,55 @@
       position: relative;
     }
 
-    .work-card-thumb svg {
-      width: 32px;
-      height: 32px;
-      color: var(--ink-soft);
-      opacity: 0.4;
-    }
-
-    .work-card-thumb .thumb-label {
-      position: absolute;
-      bottom: 10px;
-      left: 12px;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
     .work-card-thumb iframe {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       border: none;
+    }
+
+    .work-card-thumb[data-vimeo] {
+      cursor: pointer;
+    }
+
+    .thumb-poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-play {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid rgba(247, 243, 234, 0.85);
+      background: rgba(27, 24, 18, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .thumb-play::after {
+      content: '';
+      display: block;
+      margin-left: 4px;
+      border-left: 15px solid #F7F3EA;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+    }
+
+    .work-card-thumb:hover .thumb-play {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.06);
     }
 
 
@@ -316,7 +404,8 @@
     }
 
     .work-card-title {
-      font-size: 20px;
+      font-family: var(--serif);
+      font-size: 22px;
       font-weight: 400;
       line-height: 1.25;
       letter-spacing: -0.01em;
@@ -324,7 +413,7 @@
 
     .work-card-desc {
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--ink-mid);
       line-height: 1.65;
       flex: 1;
@@ -346,8 +435,12 @@
       border-bottom: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 0 80px;
       align-items: start;
+    }
+
+    .about-header {
+      grid-column: 1 / -1;
     }
 
     .about-media {
@@ -360,6 +453,7 @@
       display: block;
       border: 1px solid var(--border);
       object-fit: cover;
+      filter: grayscale(100%) contrast(1.04);
     }
 
     .about-photo-caption {
@@ -370,23 +464,33 @@
     }
 
     .about-content h2 {
-      font-size: clamp(28px, 3vw, 42px);
+      font-family: var(--serif);
+      font-size: clamp(28px, 3vw, 44px);
       font-weight: 300;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       line-height: 1.2;
       margin-bottom: 40px;
     }
 
     .about-content h2 em {
       font-style: italic;
+      color: var(--accent);
     }
 
     .about-body p {
       font-size: 16px;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--ink-mid);
       line-height: 1.8;
       margin-bottom: 20px;
+    }
+
+    /* magazine lede — the opening paragraph runs larger and darker */
+    .about-body p:first-child {
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--ink);
     }
 
     .about-body p:last-child { margin-bottom: 0; }
@@ -408,6 +512,142 @@
       color: var(--ink-mid);
     }
 
+    /* ── PULL QUOTE ──────────────────────────────────── */
+    #pullquote {
+      padding: 140px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pullquote-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .pullquote-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .pullquote-text {
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 72px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 1100px;
+    }
+
+    .pullquote-text em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ── BRIEFS ──────────────────────────────────────── */
+    #briefs {
+      padding: 96px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brief-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brief-card {
+      display: grid;
+      grid-template-columns: 320px 1fr auto;
+      gap: 40px;
+      align-items: start;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brief-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    .brief-card:last-child {
+      border-bottom: none;
+    }
+
+    .brief-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .brief-category {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .brief-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .brief-client {
+      font-size: 12px;
+      color: var(--ink-soft);
+      letter-spacing: 0.03em;
+      margin-top: 4px;
+    }
+
+    .brief-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      padding-top: 4px;
+    }
+
+    .brief-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+      margin-top: 4px;
+    }
+
+    .brief-link:hover {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    @media (max-width: 900px) {
+      #briefs { padding-left: 24px; padding-right: 24px; }
+      .brief-card { grid-template-columns: 1fr; gap: 16px; }
+    }
+
     /* ── CONTACT / FOOTER ────────────────────────────── */
     #contact {
       padding: 96px 48px 64px;
@@ -424,17 +664,18 @@
     }
 
     .contact-headline {
-      font-size: clamp(32px, 4vw, 56px);
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 58px);
       font-weight: 300;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
     }
 
-    .contact-headline em { font-style: italic; }
+    .contact-headline em { font-style: italic; color: var(--accent); }
 
     .contact-body {
       font-size: 15px;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--ink-mid);
       line-height: 1.75;
       margin-bottom: 36px;
@@ -458,7 +699,7 @@
       transition: border-color 0.15s;
     }
 
-    .contact-link:hover { border-color: var(--ink); }
+    .contact-link:hover { border-color: var(--accent); }
 
     .contact-link-label {
       font-size: 11px;
@@ -504,16 +745,93 @@
 
     .footer-links a:hover { color: var(--ink); }
 
+    /* ── MOTION ──────────────────────────────────────── */
+    /* hero rises once on load, like opening credits */
+    @keyframes heroRise {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-line {
+      display: block;
+      opacity: 0;
+      animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-line:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .hero-bottom {
+      opacity: 0;
+      animation: heroRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+    }
+
+    /* sections fade up as they enter the viewport */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .work-card.reveal:nth-child(3n+2) { transition-delay: 0.08s; }
+    .work-card.reveal:nth-child(3n+3) { transition-delay: 0.16s; }
+    .proof-item.reveal:nth-child(2) { transition-delay: 0.06s; }
+    .proof-item.reveal:nth-child(3) { transition-delay: 0.12s; }
+    .proof-item.reveal:nth-child(4) { transition-delay: 0.18s; }
+
+    /* stills lift slightly on hover */
+    .work-card-thumb {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .work-card:hover .work-card-thumb {
+      transform: translateY(-3px);
+    }
+
+    /* scroll progress line along the nav's bottom edge */
+    .scroll-progress {
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      height: 2px;
+      width: 0;
+      background: var(--accent);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-line, .hero-bottom {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .work-card-thumb { transition: none; }
+    }
+
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       #hero, #work, #about, #contact { padding-left: 24px; padding-right: 24px; }
+      #pullquote { padding: 100px 24px; }
       #proof { padding: 0 24px; grid-template-columns: 1fr 1fr; }
       .proof-item { border-right: none; }
       .proof-item:nth-child(odd) { border-right: 1px solid var(--border); }
       .work-grid { grid-template-columns: 1fr; }
-      #about { grid-template-columns: 1fr; gap: 48px; }
-      .about-media { position: static; }
+      .work-featured { grid-template-columns: 1fr; }
+      .work-featured .work-card-thumb { border-right: none; border-bottom: 1px solid var(--border); }
+      .work-featured-info { padding: 32px 24px; }
+      #about { grid-template-columns: 1fr; gap: 0; }
+      .about-media { position: static; margin-bottom: 48px; }
       .contact-top { grid-template-columns: 1fr; gap: 40px; }
     }
 
@@ -532,21 +850,23 @@
 <nav>
   <a href="#hero" class="nav-logo">Grant Michael</a>
   <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#briefs">Documents</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get in touch</a>
+  <div class="scroll-progress"></div>
 </nav>
 
 <!-- ── HERO ─────────────────────────────────────────── -->
 <section id="hero">
-  <h1 class="hero-name">Grant<br><em>Michael</em></h1>
+  <h1 class="hero-name"><span class="hero-line">Grant</span><span class="hero-line"><em>Michael</em></span></h1>
   <div class="hero-bottom">
     <div class="hero-left">
       <p class="hero-eyebrow">Storyteller &amp; Strategic Communicator</p>
       <p class="hero-description">
-        Award-winning storyteller and strategic communicator. I help organizations cut through noise — finding the human truth at the center of a message and building content that moves people to think, feel, and act differently.
+        Emmy Award-winning storyteller and strategic communicator. I help organizations cut through noise — finding the human truth at the center of a message and building content that moves people to think, feel, and act differently.
       </p>
     </div>
     <div class="hero-meta">
@@ -563,12 +883,6 @@
   <div class="proof-item">
     <div class="proof-number">10+</div>
     <div class="proof-label">Years of experience</div>
-    <div class="proof-badge">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="8" r="6"/><path d="M8 14l-4 8h16l-4-8"/>
-      </svg>
-      Emmy Award Winner
-    </div>
   </div>
   <div class="proof-item">
     <div class="proof-number">20+</div>
@@ -584,137 +898,11 @@
   </div>
 </section>
 
-<!-- ── WORK ──────────────────────────────────────────── -->
-<section id="work">
-  <div class="section-header">
-    <span class="section-title">Selected Work</span>
-    <span class="section-count">09 projects</span>
-  </div>
-
-  <div class="work-grid">
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/893834004?h=8481119722" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Brand &amp; Recruitment Series</div>
-      <div class="work-card-title">Analog</div>
-      <div class="work-card-desc">A portrait series going behind the screens at Amazon Design — one of the world's largest and most varied creative communities. Each episode profiles a designer, researcher, or creative whose work shapes how hundreds of millions of people interact with Amazon every day.</div>
-      <div class="work-card-footer">
-        <span>2021&ndash;2024</span>
-        <span>Amazon Design</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/1183866858?h=15ed27852f" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Recruitment Brand Marketing</div>
-      <div class="work-card-title">Hard, Selfless, Urgent Work</div>
-      <div class="work-card-desc">Hard, Selfless, Urgent Work is more than an employer brand framework. It's how the people at Lilly actually describe what they do every day. And now it's a film.</div>
-      <div class="work-card-footer">
-        <span>2026</span>
-        <span>Eli Lilly &amp; Company</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/1145020596?h=d55fa8021c" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Documentary Series</div>
-      <div class="work-card-title">More Than Corn</div>
-      <div class="work-card-desc">Eating local becomes more than just a trend in a docuseries that tells the stories of real Hoosier farmers who plan, build, plant, grow, nurture, and harvest, proving that there is more than corn in Indiana.</div>
-      <div class="work-card-footer">
-        <span>2020&ndash;2026</span>
-        <span>Partners in Food and Farming</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/1133885021?h=2c6afae2fa" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Global Employee Recognition Series</div>
-      <div class="work-card-title">Passions for Energy Awards</div>
-      <div class="work-card-desc">A global employee recognition series for Siemens Energy — spotlighting the people across the organization whose passion for their work drives the company's mission forward. Stories from around the world, told with the weight they deserve.</div>
-      <div class="work-card-footer">
-        <span>2024&ndash;2025</span>
-        <span>Siemens Energy</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/1060580153?h=c507e4a7be" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Branded Thought Leadership Series</div>
-      <div class="work-card-title">Lightbulb Moments</div>
-      <div class="work-card-desc">A branded thought leadership series for Mitsubishi Power, giving energy sector experts a platform to talk honestly about what decarbonization actually takes — hydrogen, carbon capture, communications, and the long road ahead.</div>
-      <div class="work-card-footer">
-        <span>2024&ndash;2025</span>
-        <span>Mitsubishi Power</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/1192600094?h=9108342e1d" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Documentary</div>
-      <div class="work-card-title">The Making of CAMi</div>
-      <div class="work-card-desc">A documentary about the people, perseverance, and purpose behind the Contemporary Art Museum of Indianapolis — from a century-old factory campus to a new cultural destination for the city.</div>
-      <div class="work-card-footer">
-        <span>Coming 2026</span>
-        <span>Big Car Collaborative</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/732219613?h=9fbe0e9991" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Brand Impact Story</div>
-      <div class="work-card-title">Tornado Recovery</div>
-      <div class="work-card-desc">A short documentary about a small Kentucky town devastated by a tornado — and the relief effort that helped it rebuild. A film about what it looks like when a company shows up for the communities it serves.</div>
-      <div class="work-card-footer">
-        <span>2023</span>
-        <span>Humana</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/1094850181?h=8ba46945ab" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Internal Communications</div>
-      <div class="work-card-title">Stories from India</div>
-      <div class="work-card-desc">A series of intimate portraits of Lilly colleagues living and working in India — made to inspire the next generation of employees to say yes to an international assignment. Real people, real roles, real lives abroad.</div>
-      <div class="work-card-footer">
-        <span>2024</span>
-        <span>Eli Lilly &amp; Company</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb">
-        <iframe src="https://player.vimeo.com/video/392497484" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="work-card-category">Documentary</div>
-      <div class="work-card-title">Our Wetlands</div>
-      <div class="work-card-desc">Indiana has lost nearly 90% of its original wetlands since statehood. This short documentary follows the people working to win some of it back — a film about science, community, and what it takes to restore a habitat most people never think about.</div>
-      <div class="work-card-footer">
-        <span>2019</span>
-        <span>Office of Land Stewardship</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ── ABOUT ─────────────────────────────────────────── -->
 <section id="about">
+  <div class="section-header about-header">
+    <span class="section-title"><span class="section-num">01</span>About</span>
+  </div>
   <div class="about-media">
     <img src="headshot.jpg" alt="Grant Michael" class="about-photo" />
   </div>
@@ -738,7 +926,7 @@
     <div class="about-tags">
       <span class="about-tag">Strategic Communication</span>
       <span class="about-tag">Brand Narrative</span>
-<span class="about-tag">Documentary</span>
+      <span class="about-tag">Documentary</span>
       <span class="about-tag">Campaign Strategy</span>
       <span class="about-tag">Content Development</span>
       <span class="about-tag">Script &amp; Story</span>
@@ -747,8 +935,172 @@
   </div>
 </section>
 
+<!-- ── WORK ──────────────────────────────────────────── -->
+<section id="work">
+  <div class="section-header">
+    <span class="section-title"><span class="section-num">02</span>Selected Work</span>
+  </div>
+
+  <div class="work-featured">
+    <div class="work-card-thumb" data-vimeo="1183866858" data-hash="15ed27852f">
+      <img class="thumb-poster" alt="" />
+      <button class="thumb-play" aria-label="Play Hard, Selfless, Urgent Work"></button>
+    </div>
+    <div class="work-featured-info">
+      <div class="work-card-category"><span class="featured-flag">Featured</span> &middot; Recruitment Brand Marketing</div>
+      <h3 class="work-featured-title">Hard, Selfless, Urgent Work</h3>
+      <p class="work-featured-desc">Hard, Selfless, Urgent Work is more than an employer brand framework. It's how the people at Lilly actually describe what they do every day. And now it's a film.</p>
+      <div class="work-card-footer">
+        <span>2026</span>
+        <span>Eli Lilly &amp; Company</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-grid">
+
+    <div class="work-card">
+      <div class="work-card-thumb" data-vimeo="893834004" data-hash="8481119722">
+        <img class="thumb-poster" alt="" />
+        <button class="thumb-play" aria-label="Play Analog"></button>
+      </div>
+      <div class="work-card-category">Brand &amp; Recruitment Series</div>
+      <div class="work-card-title">Analog</div>
+      <div class="work-card-desc">A portrait series going behind the screens at Amazon Design — one of the world's largest and most varied creative communities. Each episode profiles a designer, researcher, or creative whose work shapes how hundreds of millions of people interact with Amazon every day.</div>
+      <div class="work-card-footer">
+        <span>2021&ndash;2024</span>
+        <span>Amazon Design</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-card-thumb" data-vimeo="1145020596" data-hash="d55fa8021c">
+        <img class="thumb-poster" alt="" />
+        <button class="thumb-play" aria-label="Play More Than Corn"></button>
+      </div>
+      <div class="work-card-category">Documentary Series</div>
+      <div class="work-card-title">More Than Corn</div>
+      <div class="work-card-desc">Eating local becomes more than just a trend in a docuseries that tells the stories of real Hoosier farmers who plan, build, plant, grow, nurture, and harvest, proving that there is more than corn in Indiana.</div>
+      <div class="work-card-footer">
+        <span>2020&ndash;2026</span>
+        <span>Partners in Food and Farming</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-card-thumb" data-vimeo="1133885021" data-hash="2c6afae2fa">
+        <img class="thumb-poster" alt="" />
+        <button class="thumb-play" aria-label="Play Passions for Energy Awards"></button>
+      </div>
+      <div class="work-card-category">Global Employee Recognition Series</div>
+      <div class="work-card-title">Passions for Energy Awards</div>
+      <div class="work-card-desc">A global employee recognition series for Siemens Energy — spotlighting the people across the organization whose passion for their work drives the company's mission forward. Stories from around the world, told with the weight they deserve.</div>
+      <div class="work-card-footer">
+        <span>2024&ndash;2025</span>
+        <span>Siemens Energy</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-card-thumb" data-vimeo="1060580153" data-hash="c507e4a7be">
+        <img class="thumb-poster" alt="" />
+        <button class="thumb-play" aria-label="Play Lightbulb Moments"></button>
+      </div>
+      <div class="work-card-category">Branded Thought Leadership Series</div>
+      <div class="work-card-title">Lightbulb Moments</div>
+      <div class="work-card-desc">A branded thought leadership series for Mitsubishi Power, giving energy sector experts a platform to talk honestly about what decarbonization actually takes — hydrogen, carbon capture, communications, and the long road ahead.</div>
+      <div class="work-card-footer">
+        <span>2024&ndash;2025</span>
+        <span>Mitsubishi Power</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-card-thumb" data-vimeo="1094850181" data-hash="8ba46945ab">
+        <img class="thumb-poster" alt="" />
+        <button class="thumb-play" aria-label="Play Stories from India"></button>
+      </div>
+      <div class="work-card-category">Internal Communications</div>
+      <div class="work-card-title">Stories from India</div>
+      <div class="work-card-desc">A series of intimate portraits of Lilly colleagues living and working in India — made to inspire the next generation of employees to say yes to an international assignment. Real people, real roles, real lives abroad.</div>
+      <div class="work-card-footer">
+        <span>2024</span>
+        <span>Eli Lilly &amp; Company</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-card-thumb" data-vimeo="1192600094" data-hash="9108342e1d">
+        <img class="thumb-poster" alt="" />
+        <button class="thumb-play" aria-label="Play The Making of CAMi"></button>
+      </div>
+      <div class="work-card-category">Documentary</div>
+      <div class="work-card-title">The Making of CAMi</div>
+      <div class="work-card-desc">A documentary about the people, perseverance, and purpose behind the Contemporary Art Museum of Indianapolis — from a century-old factory campus to a new cultural destination for the city.</div>
+      <div class="work-card-footer">
+        <span>Coming 2026</span>
+        <span>Big Car Collaborative</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PULL QUOTE ─────────────────────────────────────── -->
+<section id="pullquote">
+  <p class="pullquote-label">Working Philosophy</p>
+  <blockquote class="pullquote-text">Start with what's true. Build toward what matters. Don't stop until it's <em>worth someone's attention.</em></blockquote>
+</section>
+
+<!-- ── BRIEFS ─────────────────────────────────────────── -->
+<section id="briefs">
+  <div class="section-header">
+    <span class="section-title"><span class="section-num">03</span>Creative Planning Documents</span>
+  </div>
+
+  <div class="brief-list">
+
+    <div class="brief-card">
+      <img src="brief-hsuw.png" alt="Hard, Selfless, Urgent Work" class="brief-thumb" />
+      <div class="brief-left">
+        <div class="brief-category">Recruitment Brand Marketing</div>
+        <div class="brief-title">Hard, Selfless, Urgent Work</div>
+        <div class="brief-client">Eli Lilly &amp; Company</div>
+        <p class="brief-desc">A creative brief making the case for why the hard, selfless, urgent work done by everyone from coders to chemists at Lilly is worth it — and why prospective employees should want to be part of it.</p>
+      </div>
+      <a href="hsuw-brief.pdf" target="_blank" rel="noopener" class="brief-link">View Brief →</a>
+    </div>
+
+    <div class="brief-card">
+      <img src="brief-mitsubishi.png" alt="Mitsubishi Solar" class="brief-thumb" />
+      <div class="brief-left">
+        <div class="brief-category">Renewable Energy</div>
+        <div class="brief-title">Mitsubishi Solar</div>
+        <div class="brief-client">Mitsubishi Power</div>
+        <p class="brief-desc">A brief for a film meant to inspire communities to support and advocate for local solar projects — told through the heartfelt stories of people already transformed by renewable energy.</p>
+      </div>
+      <a href="mitsubishi-solar-brief.pdf" target="_blank" rel="noopener" class="brief-link">View Brief →</a>
+    </div>
+
+    <div class="brief-card">
+      <img src="brief-otstream.png" alt="On the Stream Color Grading Notes" class="brief-thumb" />
+      <div class="brief-left">
+        <div class="brief-category">Color &amp; Visual Direction</div>
+        <div class="brief-title">On the Stream — Color Grading Notes</div>
+        <div class="brief-client">Passion Project</div>
+        <p class="brief-desc">Color grading and visual direction notes for On the Stream — a guide for achieving a naturalistic, memory-like look built on golden-hour warmth, lifted shadows, and organic texture that honor the quiet atmosphere of the film.</p>
+      </div>
+      <a href="on-the-stream-color-notes.pdf" target="_blank" rel="noopener" class="brief-link">View Document →</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- ── CONTACT / FOOTER ───────────────────────────────── -->
 <section id="contact">
+  <div class="section-header">
+    <span class="section-title"><span class="section-num">04</span>Contact</span>
+  </div>
   <div class="contact-top">
     <h2 class="contact-headline">Let's build something <em>worth saying.</em></h2>
     <div>
@@ -786,21 +1138,106 @@
 
 <script>
   (async () => {
-    const iframes = document.querySelectorAll('.work-card-thumb iframe');
-    for (const iframe of iframes) {
-      const videoMatch = iframe.src.match(/video\/(\d+)/);
-      if (!videoMatch) continue;
-      const videoId = videoMatch[1];
-      const hashMatch = iframe.src.match(/[?&]h=([^&]+)/);
-      let vimeoUrl = `https://vimeo.com/${videoId}`;
-      if (hashMatch) vimeoUrl += `/${hashMatch[1]}`;
+    // vimeo CDN thumbnails accept a size suffix — swap whatever
+    // the API returned for a 1920-wide version
+    const hiResThumb = url => {
+      if (!url) return '';
+      const [path, query] = url.split('?');
+      const upgraded = path.replace(/(?:_\d+(?:x\d+)?)?(\.\w+)?$/, '_1920$1');
+      return query ? `${upgraded}?${query}` : upgraded;
+    };
+
+    const thumbs = document.querySelectorAll('.work-card-thumb[data-vimeo]');
+    for (const thumb of thumbs) {
+      const id = thumb.dataset.vimeo;
+      const hash = thumb.dataset.hash;
+      let vimeoUrl = `https://vimeo.com/${id}`;
+      if (hash) vimeoUrl += `/${hash}`;
+
+      const buildIframe = autoplay => {
+        const iframe = document.createElement('iframe');
+        const params = [];
+        if (hash) params.push(`h=${hash}`);
+        if (autoplay) params.push('autoplay=1');
+        iframe.src = `https://player.vimeo.com/video/${id}` + (params.length ? `?${params.join('&')}` : '');
+        iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+        iframe.allowFullscreen = true;
+        return iframe;
+      };
+
       try {
         const res = await fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(vimeoUrl)}`);
         const data = await res.json();
-        iframe.closest('.work-card-thumb').style.aspectRatio = `${data.width} / ${data.height}`;
-      } catch (e) { /* falls back to 16/9 */ }
+        thumb.style.aspectRatio = `${data.width} / ${data.height}`;
+        const img = thumb.querySelector('.thumb-poster');
+        img.src = (data.thumbnail_url || '').replace(/_\d+(x\d+)?(\.\w+)?$/, '_1280$2');
+        const title = thumb.closest('.work-card, #work')?.querySelector('.work-card-title, .work-featured-title')?.textContent || '';
+        img.alt = title ? `Still from ${title}` : 'Video still';
+        thumb.addEventListener('click', () => {
+          thumb.innerHTML = '';
+          thumb.appendChild(buildIframe(true));
+        }, { once: true });
+      } catch (e) {
+        // can't reach Vimeo's API — fall back to a plain embed so the video still plays
+        thumb.innerHTML = '';
+        thumb.appendChild(buildIframe(false));
+      }
     }
   })();
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // scroll reveal — class is added by JS so content stays visible without it
+  const revealTargets = document.querySelectorAll(
+    '.section-header, .proof-item, .about-media, .about-content, .work-featured, .work-card, .brief-card, .pullquote-label, .pullquote-text, .contact-top, .footer-bottom'
+  );
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    revealTargets.forEach(el => el.classList.add('reveal'));
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealTargets.forEach(el => io.observe(el));
+  }
+
+  // proof numbers count up when seen
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    const counterIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        counterIO.unobserve(el);
+        const match = el.textContent.trim().match(/^(\d+)(.*)$/);
+        if (!match) return;
+        const target = +match[1];
+        const suffix = match[2];
+        const duration = 1200;
+        const start = performance.now();
+        const tick = now => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.proof-number').forEach(el => counterIO.observe(el));
+  }
+
+  // scroll progress line in the nav
+  const progressBar = document.querySelector('.scroll-progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    progressBar.style.width = (max > 0 ? (doc.scrollTop / max) * 100 : 0) + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
 </script>
 </body>
 </html>

@@ -221,6 +221,45 @@
       color: var(--ink-soft);
     }
 
+    .proof-word {
+      font-size: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── TRUSTED BY ──────────────────────────────────── */
+    #clients {
+      padding: 32px 48px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .clients-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .clients-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 40px;
+      align-items: center;
+    }
+
+    .clients-list span {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+
     .proof-badge {
       display: inline-flex;
       align-items: center;
@@ -569,7 +608,6 @@
       gap: 40px;
       align-items: start;
       padding: 36px 0;
-      border-bottom: 1px solid var(--border);
     }
 
     .brief-thumb {
@@ -578,10 +616,6 @@
       object-fit: cover;
       display: block;
       border: 1px solid var(--border);
-    }
-
-    .brief-card:last-child {
-      border-bottom: none;
     }
 
     .brief-left {
@@ -824,6 +858,7 @@
       #hero, #work, #about, #contact { padding-left: 24px; padding-right: 24px; }
       #pullquote { padding: 100px 24px; }
       #proof { padding: 0 24px; grid-template-columns: 1fr 1fr; }
+      #clients { padding: 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
       .proof-item { border-right: none; }
       .proof-item:nth-child(odd) { border-right: 1px solid var(--border); }
       .work-grid { grid-template-columns: 1fr; }
@@ -864,16 +899,15 @@
   <h1 class="hero-name"><span class="hero-line">Grant</span><span class="hero-line"><em>Michael</em></span></h1>
   <div class="hero-bottom">
     <div class="hero-left">
-      <p class="hero-eyebrow">Storyteller &amp; Strategic Communicator</p>
+      <p class="hero-eyebrow">Emmy Award-Winning Strategic Communicator &amp; Storyteller</p>
       <p class="hero-description">
-        Emmy Award-winning storyteller and strategic communicator. I help organizations cut through noise — finding the human truth at the center of a message and building content that moves people to think, feel, and act differently.
+        I've spent a decade at the intersection of documentary storytelling and strategic communication. I help organizations find the human truth at the center of complex ideas — and communicate it in ways that actually land.
       </p>
     </div>
     <div class="hero-meta">
       <div>Strategic Communication</div>
       <div>Brand Narrative</div>
       <div>Documentary & Film</div>
-      <div>Emmy Award Winner</div>
     </div>
   </div>
 </section>
@@ -882,19 +916,31 @@
 <section id="proof">
   <div class="proof-item">
     <div class="proof-number">10+</div>
-    <div class="proof-label">Years of experience</div>
+    <div class="proof-label">Years of communications experience</div>
   </div>
   <div class="proof-item">
     <div class="proof-number">20+</div>
-    <div class="proof-label">Countries where stories were told</div>
+    <div class="proof-label">Countries of global production</div>
   </div>
   <div class="proof-item">
-    <div class="proof-number">10+</div>
+    <div class="proof-number">6+</div>
     <div class="proof-label">Fortune 500 clients</div>
   </div>
   <div class="proof-item">
     <div class="proof-number">7+</div>
     <div class="proof-label">Feature documentaries</div>
+  </div>
+</section>
+
+<!-- ── TRUSTED BY ─────────────────────────────────────── -->
+<section id="clients">
+  <p class="clients-label">Trusted By</p>
+  <div class="clients-list">
+    <span>Amazon</span>
+    <span>Eli Lilly &amp; Company</span>
+    <span>Siemens Energy</span>
+    <span>Mitsubishi Power</span>
+    <span>Humana</span>
   </div>
 </section>
 
@@ -908,29 +954,17 @@
   </div>
 
   <div class="about-content">
-    <h2>Ten years of helping<br>organizations <em>communicate</em><br>through story.</h2>
+    <h2>Ten years at the intersection<br>of documentary craft and<br><em>strategic communication.</em></h2>
     <div class="about-body">
       <p>
         My background is in documentary filmmaking and creative leadership, but the part of the work I've always been most drawn to is the human side of communication — figuring out how to take something complex, technical, or abstract and make it feel relatable and meaningful to real people.
       </p>
       <p>
-        In my current role at 12 Stars Media, I lead storytelling and communications projects for organizations across healthcare, technology, energy, manufacturing, and nonprofit spaces. A lot of that work focuses on employee engagement, recruitment, organizational culture, executive messaging, and mission-driven communications.
+        At 12 Stars Media, I lead storytelling and communications projects for organizations across healthcare, technology, energy, and manufacturing — focusing on employee engagement, culture, executive messaging, and mission-driven communications. I'm especially interested in the role storytelling can play inside organizations: helping people feel connected to a mission, creating clarity around complex work, and building trust through honest, human communication.
       </p>
       <p>
-        Over the years I've worked with global teams, managed productions across more than 20 countries, and partnered closely with executives, employees, scientists, engineers, patients, and community leaders. I'm especially interested in the role storytelling can play inside organizations — helping people feel connected to a mission, creating clarity around complex work, and building trust through honest, human communication.
+        Outside of work, I'm passionate about fly fishing (I even have a film that was just accepted into an Oscar-qualifying festival), photography, and adventures with my kids.
       </p>
-      <p>
-        Outside of work, I'm passionate about fly fishing, photography, and going on adventures with my kids.
-      </p>
-    </div>
-    <div class="about-tags">
-      <span class="about-tag">Strategic Communication</span>
-      <span class="about-tag">Brand Narrative</span>
-      <span class="about-tag">Documentary</span>
-      <span class="about-tag">Campaign Strategy</span>
-      <span class="about-tag">Content Development</span>
-      <span class="about-tag">Script &amp; Story</span>
-      <span class="about-tag">Change Communication</span>
     </div>
   </div>
 </section>
@@ -949,7 +983,7 @@
     <div class="work-featured-info">
       <div class="work-card-category"><span class="featured-flag">Featured</span> &middot; Recruitment Brand Marketing</div>
       <h3 class="work-featured-title">Hard, Selfless, Urgent Work</h3>
-      <p class="work-featured-desc">Hard, Selfless, Urgent Work is more than an employer brand framework. It's how the people at Lilly actually describe what they do every day. And now it's a film.</p>
+      <p class="work-featured-desc">Employer brand filmmaking built around language that came from Lilly's own people — turning an internal cultural truth into a recruitment and retention narrative that resonates because it was never manufactured.</p>
       <div class="work-card-footer">
         <span>2026</span>
         <span>Eli Lilly &amp; Company</span>
@@ -966,7 +1000,7 @@
       </div>
       <div class="work-card-category">Brand &amp; Recruitment Series</div>
       <div class="work-card-title">Analog</div>
-      <div class="work-card-desc">A portrait series going behind the screens at Amazon Design — one of the world's largest and most varied creative communities. Each episode profiles a designer, researcher, or creative whose work shapes how hundreds of millions of people interact with Amazon every day.</div>
+      <div class="work-card-desc">Employer-brand storytelling designed to showcase the depth and diversity of one of the world's largest creative organizations — strengthening talent attraction by putting real people, real roles, and real creative work at the center.</div>
       <div class="work-card-footer">
         <span>2021&ndash;2024</span>
         <span>Amazon Design</span>
@@ -980,38 +1014,10 @@
       </div>
       <div class="work-card-category">Documentary Series</div>
       <div class="work-card-title">More Than Corn</div>
-      <div class="work-card-desc">Eating local becomes more than just a trend in a docuseries that tells the stories of real Hoosier farmers who plan, build, plant, grow, nurture, and harvest, proving that there is more than corn in Indiana.</div>
+      <div class="work-card-desc">Community storytelling built to shift perception and build support for local food systems — making the work of growing food personal, specific, and worth caring about for audiences who've never thought much about where their food comes from.</div>
       <div class="work-card-footer">
         <span>2020&ndash;2026</span>
         <span>Partners in Food and Farming</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb" data-vimeo="1133885021" data-hash="2c6afae2fa">
-        <img class="thumb-poster" alt="" />
-        <button class="thumb-play" aria-label="Play Passions for Energy Awards"></button>
-      </div>
-      <div class="work-card-category">Global Employee Recognition Series</div>
-      <div class="work-card-title">Passions for Energy Awards</div>
-      <div class="work-card-desc">A global employee recognition series for Siemens Energy — spotlighting the people across the organization whose passion for their work drives the company's mission forward. Stories from around the world, told with the weight they deserve.</div>
-      <div class="work-card-footer">
-        <span>2024&ndash;2025</span>
-        <span>Siemens Energy</span>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-card-thumb" data-vimeo="1060580153" data-hash="c507e4a7be">
-        <img class="thumb-poster" alt="" />
-        <button class="thumb-play" aria-label="Play Lightbulb Moments"></button>
-      </div>
-      <div class="work-card-category">Branded Thought Leadership Series</div>
-      <div class="work-card-title">Lightbulb Moments</div>
-      <div class="work-card-desc">A branded thought leadership series for Mitsubishi Power, giving energy sector experts a platform to talk honestly about what decarbonization actually takes — hydrogen, carbon capture, communications, and the long road ahead.</div>
-      <div class="work-card-footer">
-        <span>2024&ndash;2025</span>
-        <span>Mitsubishi Power</span>
       </div>
     </div>
 
@@ -1022,10 +1028,38 @@
       </div>
       <div class="work-card-category">Internal Communications</div>
       <div class="work-card-title">Stories from India</div>
-      <div class="work-card-desc">A series of intimate portraits of Lilly colleagues living and working in India — made to inspire the next generation of employees to say yes to an international assignment. Real people, real roles, real lives abroad.</div>
+      <div class="work-card-desc">Internal communications designed to drive employee behavior change — using intimate documentary portraits of Lilly colleagues abroad to inspire the next generation of talent to pursue international assignments.</div>
       <div class="work-card-footer">
         <span>2024</span>
         <span>Eli Lilly &amp; Company</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-card-thumb" data-vimeo="1060580153" data-hash="c507e4a7be">
+        <img class="thumb-poster" alt="" />
+        <button class="thumb-play" aria-label="Play Lightbulb Moments"></button>
+      </div>
+      <div class="work-card-category">Branded Thought Leadership Series</div>
+      <div class="work-card-title">Lightbulb Moments</div>
+      <div class="work-card-desc">A thought leadership communications platform positioning Mitsubishi Power as a credible voice in the energy transition — giving its experts a format to speak honestly about what decarbonization actually takes.</div>
+      <div class="work-card-footer">
+        <span>2024&ndash;2025</span>
+        <span>Mitsubishi Power</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-card-thumb" data-vimeo="1133885021" data-hash="2c6afae2fa">
+        <img class="thumb-poster" alt="" />
+        <button class="thumb-play" aria-label="Play Passions for Energy Awards"></button>
+      </div>
+      <div class="work-card-category">Global Employee Recognition Series</div>
+      <div class="work-card-title">Passions for Energy Awards</div>
+      <div class="work-card-desc">A global internal communications series transforming employee recognition into a storytelling program — surfacing mission-driven work from across the organization and building cultural cohesion at scale.</div>
+      <div class="work-card-footer">
+        <span>2024&ndash;2025</span>
+        <span>Siemens Energy</span>
       </div>
     </div>
 
@@ -1102,7 +1136,7 @@
     <span class="section-title"><span class="section-num">04</span>Contact</span>
   </div>
   <div class="contact-top">
-    <h2 class="contact-headline">Let's build something <em>worth saying.</em></h2>
+    <h2 class="contact-headline">Good work starts with <em>a conversation.</em></h2>
     <div>
       <p class="contact-body">
         I take on projects across brand storytelling, documentary work, and strategic communications — and I'm also open to the right full-time opportunity. If you're building something and think I might fit, reach out.
@@ -1115,10 +1149,6 @@
         <a href="https://www.linkedin.com/in/grantalanmichael" class="contact-link" target="_blank" rel="noopener">
           <span class="contact-link-label">LinkedIn</span>
           linkedin.com/in/grantalanmichael
-        </a>
-        <a href="#" class="contact-link">
-          <span class="contact-link-label">Location</span>
-          Indianapolis, Indiana
         </a>
       </div>
     </div>
@@ -1189,7 +1219,7 @@
 
   // scroll reveal — class is added by JS so content stays visible without it
   const revealTargets = document.querySelectorAll(
-    '.section-header, .proof-item, .about-media, .about-content, .work-featured, .work-card, .brief-card, .pullquote-label, .pullquote-text, .contact-top, .footer-bottom'
+    '.section-header, .proof-item, #clients, .about-media, .about-content, .work-featured, .work-card, .brief-card, .pullquote-label, .pullquote-text, .contact-top, .footer-bottom'
   );
   if (!reducedMotion && 'IntersectionObserver' in window) {
     revealTargets.forEach(el => el.classList.add('reveal'));

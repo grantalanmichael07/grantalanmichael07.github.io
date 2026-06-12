@@ -157,11 +157,37 @@
     /* ── HERO ────────────────────────────────────────── */
     #hero {
       min-height: calc(100vh - 60px);
+      display: grid;
+      grid-template-columns: 1fr clamp(240px, 26vw, 360px);
+      gap: clamp(32px, 5vw, 72px);
+      align-items: stretch;
+      padding: 56px 48px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-main {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 56px 48px 48px;
-      border-bottom: 1px solid var(--border);
+      min-width: 0;
+    }
+
+    .hero-portrait {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      opacity: 0;
+      animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%) contrast(1.04);
+      border: 1px solid var(--border);
+      display: block;
     }
 
     .hero-name {
@@ -906,7 +932,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-line, .hero-bottom {
+      .hero-line, .hero-bottom, .hero-portrait {
         animation: none;
         opacity: 1;
         transform: none;
@@ -999,7 +1025,9 @@
       .nav-hamburger { display: flex; }
       body { display: flex; flex-direction: column; padding-bottom: 56px; }
       nav { order: 0; }
-      #hero { order: 1; padding: 36px 24px; }
+      #hero { order: 1; padding: 36px 24px; grid-template-columns: 1fr; gap: 32px; }
+      .hero-portrait { order: -1; justify-content: center; }
+      .hero-portrait img { width: 100%; max-width: 300px; aspect-ratio: 4 / 5; }
       #pullquote { order: 2; }
       #proof { order: 3; grid-template-columns: 1fr 1fr; }
       .proof-item, .proof-item:not(:first-child) { text-align: center; padding-left: 0; }
@@ -1061,19 +1089,24 @@
 
 <!-- ── HERO ─────────────────────────────────────────── -->
 <section id="hero">
-  <h1 class="hero-name"><span class="hero-line">Grant</span><span class="hero-line"><em>Michael</em></span></h1>
-  <div class="hero-bottom">
-    <div class="hero-left">
-      <p class="hero-eyebrow">Emmy Award-Winning Strategic Communicator &amp; Storyteller</p>
-      <p class="hero-description">
-        I've spent a decade at the intersection of documentary storytelling and strategic communication. I help organizations find the <span class="thread">human truth</span> at the center of complex ideas — and communicate it in ways that actually land.
-      </p>
+  <div class="hero-main">
+    <h1 class="hero-name"><span class="hero-line">Grant</span><span class="hero-line"><em>Michael</em></span></h1>
+    <div class="hero-bottom">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Emmy Award-Winning Strategic Communicator &amp; Storyteller</p>
+        <p class="hero-description">
+          I've spent a decade at the intersection of documentary storytelling and strategic communication. I help organizations find the <span class="thread">human truth</span> at the center of complex ideas — and communicate it in ways that actually land.
+        </p>
+      </div>
+      <div class="hero-meta">
+        <div>Strategic Communication</div>
+        <div>Brand Narrative</div>
+        <div>Documentary & Film</div>
+      </div>
     </div>
-    <div class="hero-meta">
-      <div>Strategic Communication</div>
-      <div>Brand Narrative</div>
-      <div>Documentary & Film</div>
-    </div>
+  </div>
+  <div class="hero-portrait">
+    <img src="headshot.jpg" alt="Grant Michael" />
   </div>
 </section>
 
@@ -1121,7 +1154,7 @@
     <span class="section-title"><span class="section-num">01</span>About</span>
   </div>
   <div class="about-media">
-    <img src="headshot.jpg" alt="Grant Michael" class="about-photo" />
+    <img src="actionshot-web.jpg" alt="Grant Michael on set" class="about-photo" />
   </div>
 
   <div class="about-content">

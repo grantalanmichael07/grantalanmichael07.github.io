@@ -157,24 +157,23 @@
     /* ── HERO ────────────────────────────────────────── */
     #hero {
       min-height: calc(100vh - 60px);
-      display: grid;
-      grid-template-columns: 1fr clamp(240px, 26vw, 360px);
-      gap: clamp(32px, 5vw, 72px);
-      align-items: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 56px 48px 48px;
       border-bottom: 1px solid var(--border);
     }
 
-    .hero-main {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-width: 0;
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1fr clamp(240px, 26vw, 360px);
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
     }
 
     .hero-portrait {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: flex-end;
       opacity: 0;
       animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
@@ -1007,10 +1006,25 @@
       nav { padding: 0 24px; }
       #hero, #work, #about, #contact { padding-left: 24px; padding-right: 24px; }
       #pullquote { padding: 100px 24px; }
-      #proof { padding: 0 24px; grid-template-columns: 1fr 1fr; }
-      #clients { padding: 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
-      .proof-item { border-right: none; }
-      .proof-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      #proof { padding: 0 24px; grid-template-columns: 1fr; }
+      .proof-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        text-align: left;
+        padding: 22px 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .proof-item:nth-child(odd) { border-right: none; }
+      .proof-item:not(:first-child) { padding-left: 0; }
+      .proof-item:last-child { border-bottom: none; }
+      .proof-number { min-width: 72px; margin-bottom: 0; flex-shrink: 0; }
+      .proof-label { flex: 1; }
+      #clients { padding: 24px; flex-direction: column; align-items: center; gap: 16px; }
+      .clients-label { text-align: center; }
+      .clients-list { flex-direction: column; align-items: center; gap: 10px; }
+      .clients-list span { font-size: 12px; width: auto; text-align: center; }
       .work-grid { grid-template-columns: 1fr; }
       .work-featured { grid-template-columns: 1fr; }
       .work-featured .work-card-thumb { border-right: none; border-bottom: 1px solid var(--border); }
@@ -1025,15 +1039,12 @@
       .nav-hamburger { display: flex; }
       body { display: flex; flex-direction: column; padding-bottom: 56px; }
       nav { order: 0; }
-      #hero { order: 1; padding: 36px 24px; grid-template-columns: 1fr; gap: 32px; }
+      #hero { order: 1; padding: 36px 24px; justify-content: flex-start; gap: 32px; }
+      .hero-top { grid-template-columns: 1fr; gap: 32px; }
       .hero-portrait { order: -1; justify-content: center; }
       .hero-portrait img { width: 100%; max-width: 300px; aspect-ratio: 4 / 5; }
       #pullquote { order: 2; }
-      #proof { order: 3; grid-template-columns: 1fr 1fr; }
-      .proof-item, .proof-item:not(:first-child) { text-align: center; padding-left: 0; }
-      #clients { flex-direction: column; gap: 12px; }
-      .clients-list { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
-      .clients-list span { font-size: 11px; width: calc(50% - 8px); text-align: center; }
+      #proof { order: 3; }
       #clients { order: 4; }
       #work { order: 5; }
       #about { order: 6; }
@@ -1089,24 +1100,24 @@
 
 <!-- ── HERO ─────────────────────────────────────────── -->
 <section id="hero">
-  <div class="hero-main">
+  <div class="hero-top">
     <h1 class="hero-name"><span class="hero-line">Grant</span><span class="hero-line"><em>Michael</em></span></h1>
-    <div class="hero-bottom">
-      <div class="hero-left">
-        <p class="hero-eyebrow">Emmy Award-Winning Strategic Communicator &amp; Storyteller</p>
-        <p class="hero-description">
-          I've spent a decade at the intersection of documentary storytelling and strategic communication. I help organizations find the <span class="thread">human truth</span> at the center of complex ideas — and communicate it in ways that actually land.
-        </p>
-      </div>
-      <div class="hero-meta">
-        <div>Strategic Communication</div>
-        <div>Brand Narrative</div>
-        <div>Documentary & Film</div>
-      </div>
+    <div class="hero-portrait">
+      <img src="headshot.jpg" alt="Grant Michael" />
     </div>
   </div>
-  <div class="hero-portrait">
-    <img src="headshot.jpg" alt="Grant Michael" />
+  <div class="hero-bottom">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Emmy Award-Winning Strategic Communicator &amp; Storyteller</p>
+      <p class="hero-description">
+        I've spent a decade at the intersection of documentary storytelling and strategic communication. I help organizations find the <span class="thread">human truth</span> at the center of complex ideas — and communicate it in ways that actually land.
+      </p>
+    </div>
+    <div class="hero-meta">
+      <div>Strategic Communication</div>
+      <div>Brand Narrative</div>
+      <div>Documentary & Film</div>
+    </div>
   </div>
 </section>
 
